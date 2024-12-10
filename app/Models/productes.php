@@ -9,7 +9,7 @@ class productes extends Model
     protected $table="productes";
 
     public function comanda(){
-        return $this->belongsToMany(comanda::class);
+        return $this->belongsToMany(comanda::class, "comanda_producte");
     }
 
     public function tipus_producte(){

@@ -9,7 +9,7 @@ class comanda extends Model
     protected $table="comanda";
 
     public function usuaris(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, "comanda_producte");
     }
 
     public function productes(){
