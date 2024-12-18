@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('productes', function (Blueprint $table) {
             $table->id();
             $table->string('nom_producte');
+            $table->string('image_url')->nullable(); // Afegida aquí
             $table->integer('quantitat_stock');
             $table->foreignId('tipus_producte_id')
-                ->constrained(table:'tipus_producte')
+                ->constrained('tipus_producte')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();

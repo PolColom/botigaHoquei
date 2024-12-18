@@ -8,10 +8,7 @@ use App\Models\Tipus_Producte;
 
 class MaterialPorterController extends Controller{
     public function index(){
-        $productes = Productes::whereHas('tipusProducte', function ($query) {
-            $query->where('tipus', 'Porter');
-        })->with('tipusProducte')->get();
-
+        $productes = Productes::where('tipus_producte_id', 1)->get();
         return view('materialPorter', ['productes' => $productes]);
     }
 
