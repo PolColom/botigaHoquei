@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tipus_producte extends Model
+class Tipus_Producte extends Model
 {
-    protected $table="tipus_producte";
+    use HasFactory;
 
-    public function productes(){
-        return $this->hasMany(productes::class);
+    protected $table = 'tipus_producte';
+
+    protected $fillable = ['nom', 'tipus', 'talla', 'preu'];
+
+    public function productes()
+    {
+        return $this->hasMany(Products::class, 'tipus_producte_id');
     }
 }

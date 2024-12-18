@@ -25,7 +25,7 @@
         </div>
         <!-- Text central del Slider -->
         <div class="absolute top-1/2 left-0 w-full text-center">
-            <h1 class="text-white text-5xl font-bold drop-shadow-lg">HOQUEI MANIA</h1>
+            <h1 class="text-white text-8xl font-bold drop-shadow-1g">HOQUEI MANIA</h1>
         </div>
     </div>
 
@@ -40,7 +40,7 @@
                 currentIndex++;
                 if (currentIndex >= slides.length) currentIndex = 0;
                 sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }, 5000); // 5 segons
+            }, 5000); //5s
         });
     </script>
 

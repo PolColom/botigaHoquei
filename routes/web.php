@@ -27,10 +27,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //Web --> Tabs Menu
-    Route::get('/material-jugador', [MaterialJugadorController::class, 'index'])->name('materialJugador');
+    Route::get('/material-jugador', [MaterialJugadorController::class, 'index'])->name('materialJugador.index');
     Route::get('/material-porter', [MaterialPorterController::class, 'index'])->name('materialPorter');
 
     Route::get('/comandes', [ComandaController::class, 'index'])->name('comandes');
+
+    Route::get('/material-jugador', [MaterialJugadorController::class, 'index'])->name('materialJugador.index');
+    Route::get('/material-porter', [MaterialPorterController::class, 'index'])->name('materialPorter.index');
+    Route::post('/cistella/afegir/{id}', [CistellaController::class, 'afegir'])->name('cistella.afegir');
+
     
 });
 

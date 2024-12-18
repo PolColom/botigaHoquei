@@ -20,13 +20,14 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('materialJugador')" :active="request()->routeIs('materialJugador')">
+                    <x-nav-link :href="route('materialJugador.index')" :active="request()->routeIs('materialJugador.index')">
                         {{ __('Material Jugadors') }}
                     </x-nav-link>
-
-                    <x-nav-link :href="route('materialPorter')" :active="request()->routeIs('materialPorter')">
+                    
+                    <x-nav-link :href="route('materialPorter.index')" :active="request()->routeIs('materialPorter.index')">
                         {{ __('Material Porters') }}
                     </x-nav-link>
+                    
                 </div>
 
             </div>

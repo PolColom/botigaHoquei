@@ -8,11 +8,8 @@ use Illuminate\Http\Request;
 
 class ProductesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
+
+    public function index(){
         //
     }
 
@@ -32,13 +29,11 @@ class ProductesController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(productes $productes)
-    {
-        //
+    public function show($id){
+        $producte = Producte::with('tipusProducte')->findOrFail($id);
+        return view('producte.show', ['producte' => $producte]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
