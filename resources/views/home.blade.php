@@ -115,7 +115,7 @@
                 <img src="{{ asset('images/platinesDestacats.jpg') }}"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
-                    PLATINES</div>
+                    PATINS</div>
             </a>
             <a href="#" class="relative block group">
                 <img src="{{ asset('images/rodesDestacats.jpg') }}"
