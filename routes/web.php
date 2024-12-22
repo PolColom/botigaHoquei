@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MaterialJugadorController;
 use App\Http\Controllers\MaterialPorterController;
 use App\Http\Controllers\ComandaController;
-use App\Http\Controllers\CistellaController;
 use App\Http\Controllers\ProductesController;
-
 
 Route::get('/', function () {
     return view('home');
@@ -19,26 +17,26 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    //Perfil
+    // Perfil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    //Pàgina de Material
+    // Pàgina de Material
     Route::get('/material-jugador', [MaterialJugadorController::class, 'index'])->name('materialJugador.index');
     Route::get('/material-porter', [MaterialPorterController::class, 'index'])->name('materialPorter.index');
 
-    Route::get('/producte/{id}', [ProductesController::class, 'show'])->name('producte.detalls');
+    // Producte Detalls
     Route::get('/producte/{id}', [ProductesController::class, 'show'])->name('detalls');
 
-
-    //Cistella i Comandes
-    Route::post('/cistella/afegir/{id}', [ComandaController::class, 'afegir'])->name('cistella.afegir');
+    // Cistella i Comandes
     Route::post('/comanda/afegir/{id}', [ComandaController::class, 'afegir'])->name('comanda.afegir');
-
     Route::get('/comandes', [ComandaController::class, 'index'])->name('comandes.index');
-    Route::delete('/cistella/eliminar/{id}', [ComandaController::class, 'eliminar'])->name('cistella.eliminar');
-    
+    Route::delete('/comandes/eliminar/{id}', [ComandaController::class, 'eliminar'])->name('comandes.eliminar');
+    Route::post('/comandes/finalitzar', [ComandaController::class, 'finalitzarCompra'])->name('comandes.finalitzar');
+    Route::post('/cistella/afegir/{id}', [ComandaController::class, 'afegir'])->name('cistella.afegir');
+    Route::get('/cistella', [ComandaController::class, 'index'])->name('cistella.index');
+
 });
 
 require __DIR__.'/auth.php';

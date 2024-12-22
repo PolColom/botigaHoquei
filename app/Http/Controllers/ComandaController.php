@@ -2,28 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\comanda_producte;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Comanda;
-use App\Models\Producte;
 use App\Models\Productes;
+use Illuminate\Http\Request;
 use Session;
 
 class ComandaController extends Controller{
-    public function index(){
-        $comandes = Comanda::with('producte')
-            ->where('data', '>=', now())
-            ->get();
-
-        $comandesCount = $comandes->count();
-
+    public function index()
+    {
         $cistella = session()->get('cistella', []);
         $total = array_reduce($cistella, function ($carry, $item) {
             return $carry + ($item['preu'] * $item['quantitat']);
         }, 0);
 
-        return view('comandes.index', [
+        return view('comandes', [
             'cistella' => $cistella,
             'total' => $total,
         ]);
@@ -54,32 +45,28 @@ class ComandaController extends Controller{
 
         Session::put('cistella', $cistella);
 
-        return redirect()->route('comanda.index')->with('success', 'Producte afegit al carro!');
+        return redirect()->route('home')->with('success', 'Producte afegit al carro!');
     }
 
-    // Eliminar producte de la cistella
-    public function eliminar($id)
-    {
+
+    public function eliminar($id){
         $cistella = Session::get('cistella', []);
         unset($cistella[$id]);
         Session::put('cistella', $cistella);
 
-        return redirect()->route('comanda.index')->with('success', 'Producte eliminat de la cistella.');
+        return redirect()->route('cistella.index')->with('success', 'Producte eliminat de la cistella.');
     }
 
-    // Finalitzar la compra
-    public function finalitzarCompra()
-    {
+    public function finalitzarCompra(){
         $cistella = Session::get('cistella', []);
         if (empty($cistella)) {
-            return redirect()->route('comanda.index')->withErrors("La cistella està buida.");
+            return redirect()->route('cistella.index')->withErrors("La cistella està buida.");
         }
 
-        // Aquí pots afegir la lògica per desar les comandes a la base de dades.
+        //Aquí pots implementar la lògica per guardar la compra a la base de dades
 
-        // Neteja la cistella després de finalitzar la compra
         Session::forget('cistella');
 
-        return redirect()->route('comanda.index')->with('success', 'Compra finalitzada correctament!');
+        return redirect()->route('cistella.index')->with('success', 'Compra finalitzada correctament!');
     }
 }

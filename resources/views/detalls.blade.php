@@ -14,7 +14,7 @@
                 <p class="text-green-600 font-semibold mb-4">Stock disponible: {{ $producte->quantitat_stock }}</p>
 
                 <!-- Selecció de quantitat -->
-                <form action="{{ route('comanda.afegir', $producte->id) }}" method="POST" onsubmit="return validaQuantitat();">
+                <form action="{{ route('cistella.afegir', $producte->id) }}" method="POST" onsubmit="return validaQuantitat();">
                     @csrf
                     <label for="quantitat" class="block text-gray-700 font-medium mb-2">Quantitat:</label>
                     <input 
@@ -26,9 +26,9 @@
                         max="{{ $producte->quantitat_stock }}" 
                         class="border border-gray-300 rounded-lg p-2 mb-4 w-20"
                         onchange="actualitzaPreu();">
-
+                
                     <p class="text-lg font-semibold text-gray-800 mb-4">Preu total: <span id="preu">{{ number_format($producte->preu, 2) }}</span> €</p>
-
+                
                     <!-- Botó "Afegeix a la Cistella" -->
                     <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
                         Afegeix a la Cistella
