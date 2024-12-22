@@ -9,11 +9,10 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->role === 'admin') {
-            return $next($request);
+        if (!auth()->check() || auth()->user()->role !== 'admin') {
+            return redirect('/')->with('error', 'No tens permisos per accedir a aquesta pàgina.');
         }
 
-        return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
+        return $next($request);
     }
 }
-
