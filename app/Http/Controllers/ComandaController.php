@@ -63,10 +63,30 @@ class ComandaController extends Controller{
             return redirect()->route('cistella.index')->withErrors("La cistella està buida.");
         }
 
-        //Aquí pots implementar la lògica per guardar la compra a la base de dades
 
         Session::forget('cistella');
 
         return redirect()->route('cistella.index')->with('success', 'Compra finalitzada correctament!');
+    }
+
+
+    public function aplicarDescompte(Request $request){
+        $codi = strtolower(trim($request->input('codi')));
+        $descomptes = [
+            'vic' => 0.25,
+            'pati vic' => 0.25,
+            'taradell' => 0.15,
+            'voltregà' => 0.15,
+            'barça' => 0.10,
+            'noia' => 0.05,
+            'reus' => 0.10,
+        ];
+
+        if (array_key_exists($codi, $descomptes)) {
+            session(['descompte' => $descomptes[$codi]]);
+            return redirect()->back()->with('success', 'Descompte aplicat correctament!');
+        }
+
+        return redirect()->back()->with('error', 'Aquest equip no té descompte.');
     }
 }

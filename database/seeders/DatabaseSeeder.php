@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder{
             [
                 'id' => 1,
                 'name' => 'AdminUser',
-                'email' => 'test1@example.com',
+                'email' => 'admin1@example.com',
                 'password' => bcrypt('1234'),
                 'equip' => 'Vic',
+                'role' => 'admin',
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -27,14 +28,16 @@ class DatabaseSeeder extends Seeder{
             [
                 'id' => 2,
                 'name' => 'User2',
-                'email' => 'test2@example.com',
+                'email' => 'user1@example.com',
                 'password' => bcrypt('1234'),
                 'equip' => 'Taradell',
+                'role' => 'guest',
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ]);
+        
 
         //Tipus de Producte
         DB::table('tipus_producte')->insert([
