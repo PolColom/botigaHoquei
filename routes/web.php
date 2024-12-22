@@ -7,6 +7,8 @@ use App\Http\Controllers\MaterialJugadorController;
 use App\Http\Controllers\MaterialPorterController;
 use App\Http\Controllers\ComandaController;
 use App\Http\Controllers\CistellaController;
+use App\Http\Controllers\ProductesController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -26,9 +28,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/material-jugador', [MaterialJugadorController::class, 'index'])->name('materialJugador.index');
     Route::get('/material-porter', [MaterialPorterController::class, 'index'])->name('materialPorter.index');
 
+    Route::get('/producte/{id}', [ProductesController::class, 'show'])->name('producte.detalls');
+    Route::get('/producte/{id}', [ProductesController::class, 'show'])->name('detalls');
+
+
     //Cistella i Comandes
-    Route::post('/cistella/afegir/{id}', [CistellaController::class, 'afegir'])->name('cistella.afegir');
-    Route::get('/comandes', [ComandaController::class, 'index'])->name('comandes');
+    Route::post('/cistella/afegir/{id}', [ComandaController::class, 'afegir'])->name('cistella.afegir');
+    Route::post('/comanda/afegir/{id}', [ComandaController::class, 'afegir'])->name('comanda.afegir');
+
+    Route::get('/comandes', [ComandaController::class, 'index'])->name('comandes.index');
+    Route::delete('/cistella/eliminar/{id}', [ComandaController::class, 'eliminar'])->name('cistella.eliminar');
+    
 });
 
 require __DIR__.'/auth.php';

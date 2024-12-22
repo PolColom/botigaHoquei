@@ -30,9 +30,10 @@ class ProductesController extends Controller
     }
 
     public function show($id){
-        $producte = Producte::with('tipusProducte')->findOrFail($id);
-        return view('producte.show', ['producte' => $producte]);
+        $producte = Productes::findOrFail($id); 
+        return view('detalls', ['producte' => $producte]);
     }
+
 
 
     /**

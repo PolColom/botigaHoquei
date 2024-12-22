@@ -13,7 +13,8 @@
         </div>
         <!-- Text central del Slider -->
         <div class="absolute top-1/2 left-0 w-full text-center">
-            <h1 class="text-white text-8xl font-bold drop-shadow-lg shadow-black" style="font-family: 'DM Sans', sans-serif; font-weight: bold; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">
+            <h1 class="text-white text-8xl font-bold drop-shadow-lg shadow-black"
+                style="font-family: 'DM Sans', sans-serif; font-weight: bold; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">
                 HOQUEI MANIA
             </h1>
         </div>
@@ -34,163 +35,232 @@
         });
     </script>
 
-    
-    <div class="logo-carousel py-10">
-        <div class="logo-component">
-            <div class="logo-list">
-                <div class="logo-wrapper">
-                    <img src="https://meneghinihockey.it/img/m/1.jpg" style="width: 280px;" loading="lazy"
-                        alt="Marca 1">
-                </div>
-                <div class="logo-wrapper">
-                    <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
-                        style="width: 250px;" loading="lazy" alt="Marca 2">
-                </div>
-                <div class="logo-wrapper">
-                    <img src="https://hockeyteam.es/img/m/41.jpg" style="width: 120px;" loading="lazy" alt="Marca 3">
-                </div>
-                <div class="logo-wrapper">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
-                        style="width: 120px;" loading="lazy" alt="Marca 4">
-                </div>
+    <div class="relative overflow-hidden w-full mb-8 mt-10" style="margin-top: 3%;">
+        <div class="flex items-center justify-center overflow-hidden">
+            <div class="flex space-x-10 animate-marques">
+                <img src="https://meneghinihockey.it/img/m/1.jpg" alt="Marca 1" class="h-24 w-auto">
+                <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
+                    alt="Marca 2" class="h-16 w-auto">
+                <img src="https://hockeyteam.es/img/m/41.jpg" alt="Marca 3" class="h-16 w-auto">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
+                    alt="Marca 4" class="h-16 w-auto">
 
-                <!-- Marques Duplicades -->
-                <div class="logo-wrapper">
-                    <img src="https://meneghinihockey.it/img/m/1.jpg" style="width: 280px;" loading="lazy"
-                        alt="Marca 1">
-                </div>
-                <div class="logo-wrapper">
-                    <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
-                        style="width: 250px;" loading="lazy" alt="Marca 2">
-                </div>
-                <div class="logo-wrapper">
-                    <img src="https://hockeyteam.es/img/m/41.jpg" style="width: 120px;" loading="lazy" alt="Marca 3">
-                </div>
-                <div class="logo-wrapper">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
-                        style="width: 120px;" loading="lazy" alt="Marca 4">
-                </div>
+                <!-- Imatges duplicades per efecte infinit -->
+                <img src="https://meneghinihockey.it/img/m/1.jpg" alt="Marca 1" class="h-24 w-auto">
+                <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
+                    alt="Marca 2" class="h-16 w-auto">
+                <img src="https://hockeyteam.es/img/m/41.jpg" alt="Marca 3" class="h-16 w-auto">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
+                    alt="Marca 4" class="h-16 w-auto">
             </div>
         </div>
     </div>
 
-    <!-- CSS per a l'efecte del slider -->
+    <!-- CSS per al Slider -->
     <style>
-        .logo-carousel {
-            overflow: hidden;
-            width: 100%;
+        .animate-marques {
+            animation: slide 25s linear infinite;
         }
 
-        .logo-list {
-            display: flex;
-            animation: scroll 40s linear infinite;
-        }
-
-        .logo-wrapper {
-            margin-right: 100px;
-        }
-
-        @keyframes scroll {
+        @keyframes slide {
             0% {
-                transform: translateX(100%);
+                transform: translateX(120%);
             }
 
             100% {
-                transform: translateX(-100%);
+                transform: translateX(-120%);
             }
         }
     </style>
 
     <!-- Secció DESTACAT -->
     <div class="container mx-auto px-4 py-12">
-        <h2 class="text-4xl font-bold text-center mb-10">DESTACAT</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-            <a href="{{ route('materialPorter.index') }}" class="relative block group">
-                <img src="{{ asset('images/porterDestacats.jpg') }}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">PETOS
-                    PORTERO</div>
-            </a>
-            <a href="#" class="relative block group">
-                <img src="{{ asset('images/platinesDestacats.jpg') }}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
-                    PATINS</div>
-            </a>
-            <a href="#" class="relative block group">
-                <img src="{{ asset('images/rodesDestacats.jpg') }}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">RODES
-                    TOOR</div>
-            </a>
-            <a href="{{ route('materialJugador.index') }}" class="relative block group">
-                <img src="{{ asset('images/sticksDestacats.jpg') }}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">STICKS
-                    AZEMAD</div>
-            </a>
+        <h2 class="custom-title mb-10">DESTACAT</h2>
+        <div class="relative overflow-hidden">
+            <div id="featuredWrapper" class="flex transition-transform duration-500 ease-in-out space-x-6">
+                <!-- Primera Imatge -->
+                <a href="#"
+                    class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
+                    <img src="{{ asset('images/porterDestacats.jpg') }}" alt="Petos Portero"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
+                        PETOS PORTERO
+                    </div>
+                </a>
+
+                <!-- Segona Imatge -->
+                <a href="#"
+                    class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
+                    <img src="{{ asset('images/platinesDestacats.jpg') }}" alt="Patins"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
+                        PLATINES PATINS
+                    </div>
+                </a>
+
+                <!-- Tercera Imatge -->
+                <a href="#"
+                    class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
+                    <img src="{{ asset('images/rodesDestacats.jpg') }}" alt="Rodes"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
+                        RODES
+                    </div>
+                </a>
+
+                <!-- Quarta Imatge -->
+                <a href="#"
+                    class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
+                    <img src="{{ asset('images/sticksDestacats.jpg') }}" alt="Sticks Azemad"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
+                        STICKS AZEMAD
+                    </div>
+                </a>
+            </div>
+
+
+
+            <!-- Barra divisòria -->
+            <div class="border-t border-gray-300 my-4" style="margin-top: 2%;"></div>
+
+            <!-- Botons per moure els DESTACATS -->
+            <div class="flex justify-center space-x-4 mt-4">
+                <button id="featuredPrev"
+                    class="w-14 h-14 bg-white text-gray-900 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-900 hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <button id="featuredNext"
+                    class="w-14 h-14 bg-whitetext-gray-900 border border-gray-300 rounded-full flex items-center justify-center hover:bg-white hover:text-gray-900 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const featuredWrapper = document.getElementById('featuredWrapper');
+            const featuredItems = featuredWrapper.children;
+            const featuredPrev = document.getElementById('featuredPrev');
+            const featuredNext = document.getElementById('featuredNext');
+            let featuredIndex = 0;
+
+            function updateFeaturedSlider() {
+                featuredWrapper.style.transform = `translateX(-${featuredIndex * (250 + 24)}px)`;
+            }
+
+            featuredNext.addEventListener('click', () => {
+                if (featuredIndex < featuredItems.length - 1) { // Mostra 4 elements per vegada
+                    featuredIndex++;
+                    updateFeaturedSlider();
+                }
+            });
+
+            featuredPrev.addEventListener('click', () => {
+                if (featuredIndex > 0) featuredIndex--;
+                updateFeaturedSlider();
+            });
+        });
+    </script>
+
+
+
+
+    <!-- Secció Google Maps -->
+    <div class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="custom-title mb-6">On ens pots trobar?</h2>
+            <div class="flex justify-center">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.275546175962!2d2.2493397!3d41.9417692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a52749036ae301%3A0xfb558f058ea1c869!2sHockeymania!5e0!3m2!1sca!2ses!4v1700000000000!5m2!1sca!2ses"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center mb-8">
+        <img src="{{ asset('images/HoqueiManiaLogo.png') }}" alt="Hoquei Mania Logo" class="h-24 w-auto">
+    </div>
+
+
+    <style>
+        .custom-title {
+            font-size: 54px; 
+            font-family: 'DM Sans', sans-serif;
+            font-weight: bold;
+            color: rgb(34, 34, 34);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+    </style>
 
 
 
     <!-- Footer -->
-    <footer class="bg-white py-12">
-        <!-- Logo Central -->
-        <div class="flex justify-center mb-8">
-            <img src="{{ asset('images/HoqueiManiaLogo.png') }}" alt="Hoquei Mania Logo" class="h-24 w-auto">
-        </div>
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-20 relative z-10">
+            <div class="flex flex-wrap lg:flex-nowrap justify-between items-center">
 
-        <!-- Slider de Marques -->
-        <div class="relative overflow-hidden w-full mb-8">
-            <div class="flex items-center justify-center overflow-hidden">
-                <div class="flex space-x-10 animate-marques">
-                    <img src="https://meneghinihockey.it/img/m/1.jpg" alt="Marca 1" class="h-24 w-auto">
-                    <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
-                        alt="Marca 2" class="h-16 w-auto">
-                    <img src="https://hockeyteam.es/img/m/41.jpg" alt="Marca 3" class="h-16 w-auto">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
-                        alt="Marca 4" class="h-16 w-auto">
+                <!-- Primera Columna -->
+                <div class="lg:w-1/2 mb-8 lg:mb-0 relative">
+                    <div class="parallax-container">
+                        <img src="https://patinkid.com/wp-content/uploads/2021/05/flyer-alameda.jpg"
+                            alt="Hoquei Image" class="rounded-lg shadow-lg parallax-image">
+                    </div>
+                </div>
 
-                    <!-- Imatges duplicades per efecte infinit -->
-                    <img src="https://meneghinihockey.it/img/m/1.jpg" alt="Marca 1" class="h-24 w-auto">
-                    <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
-                        alt="Marca 2" class="h-16 w-auto">
-                    <img src="https://hockeyteam.es/img/m/41.jpg" alt="Marca 3" class="h-16 w-auto">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
-                        alt="Marca 4" class="h-16 w-auto">
+                <!-- Segona Columna -->
+                <div class="lg:w-1/2 mb-8 lg:mb-0 flex flex-col justify-center">
+                    <h2 class="text-2xl font-bold mb-4 leading-tight">
+                        Millora el teu rendiment <br>
+                        <span class="font-light">amb el millor equipament d'hoquei</span>
+                    </h2>
                 </div>
             </div>
-        </div>
 
-        <!-- Secció Xarxes Socials i Text -->
-        <div class="border-t border-gray-300 pt-8">
-            <div class="flex justify-center space-x-6 mb-4">
-                <!-- Icons Xarxes -->
-                <a href="#" class="text-gray-500 hover:text-gray-700">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube"
-                        class="h-8 w-auto">
-                </a>
-                <a href="#" class="text-gray-500 hover:text-gray-700">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"
-                        class="h-8 w-auto">
-                </a>
-                <a href="#" class="text-gray-500 hover:text-gray-700">
-                    <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"
-                        class="h-8 w-auto">
-                </a>
+            <!-- Línia divisòria -->
+            <div class="border-t border-gray-700 mt-8 pt-6">
+                <div class="flex flex-wrap justify-between">
+                    <!-- Xarxes Socials -->
+                    <div class="mb-4 lg:mb-0">
+                        <h3 class="font-semibold text-lg mb-4">Les Nostres Reds Socials</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"
+                                    class="h-6 w-6">
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"
+                                    class="h-6 w-6">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Vols rebre ofertes i futures promocions?</h3>
+                        <form class="flex">
+                            <input type="email"
+                                class="bg-gray-800 text-gray-400 rounded-l-md p-2 w-full focus:outline-none"
+                                placeholder="Email address">
+                            <button class="bg-blue-600 text-white px-4 rounded-r-md hover:bg-blue-700">→</button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
-            <!-- Text Legal -->
-            <div class="text-center text-gray-500 text-sm mb-4">
-                <p>C/ Sabadell, 9B
-                    Pol. Ind, Carrer Sot dels Pradals</p>
-                <p>08500 Vic Barcelona</p>
-            </div>
-
-            <!-- Copyright -->
-            <div class="text-center text-gray-500 text-sm">
+            <!-- Copy típic dels footers -->
+            <div class="text-center text-gray-400 text-sm mt-8">
                 <p>&copy; 2024 HoqueiMania. Tots els drets reservats.</p>
                 <p>
                     <a href="#" class="hover:underline">Política de Privacitat</a> |
@@ -199,21 +269,96 @@
             </div>
         </div>
 
-        <!-- CSS per al Slider -->
-        <style>
-            .animate-marques {
-                animation: slide 25s linear infinite;
-            }
-
-            @keyframes slide {
-                0% {
-                    transform: translateX(120%);
-                }
-
-                100% {
-                    transform: translateX(-120%);
-                }
-            }
-        </style>
+        <!-- Imatge Parallax -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-20 parallax-image z-0"></div>
     </footer>
+
+    <style>
+        .parallax-image {
+            max-height: 300px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 4rem 1rem;
+            margin-bottom: 2%;
+        }
+
+        footer h2,
+        footer h3 {
+            margin-bottom: 1rem;
+        }
+
+        footer .social-icons img {
+            height: 1.5rem;
+            width: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        footer form input {
+            background-color: #374151;
+            color: #9ca3af;
+            border-radius: 0.375rem 0 0 0.375rem;
+            padding: 0.5rem;
+            flex: 1;
+        }
+
+        footer form button {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0 0.375rem 0.375rem 0;
+            transition: background-color 0.3s;
+        }
+
+        footer form button:hover {
+            background-color: #1d4ed8;
+        }
+
+        footer .border-t {
+            border-top: 1px solid #374151;
+        }
+    </style>
+
+    <!-- Slider de Marques -->
+    <div class="relative overflow-hidden w-full mb-8">
+        <div class="flex items-center justify-center overflow-hidden">
+            <div class="flex space-x-10 animate-marques">
+                <img src="https://meneghinihockey.it/img/m/1.jpg" alt="Marca 1" class="h-24 w-auto">
+                <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
+                    alt="Marca 2" class="h-16 w-auto">
+                <img src="https://hockeyteam.es/img/m/41.jpg" alt="Marca 3" class="h-16 w-auto">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
+                    alt="Marca 4" class="h-16 w-auto">
+
+                <!-- Imatges duplicades per efecte infinit -->
+                <img src="https://meneghinihockey.it/img/m/1.jpg" alt="Marca 1" class="h-24 w-auto">
+                <img src="https://lh6.googleusercontent.com/proxy/WptjH4aK0F_B5X_6D7pfDZmZ6UR_1SNCTcHBfnRrV8I5--SCGgYpj8CkwjsQPzRsnVc3mM8kwiFzdFH1H1tgENYlciE--G-BXL6fLig"
+                    alt="Marca 2" class="h-16 w-auto">
+                <img src="https://hockeyteam.es/img/m/41.jpg" alt="Marca 3" class="h-16 w-auto">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqBcvtD1oA6ZHHRHi7ZdJXh7CP9SDE9236Ow&s"
+                    alt="Marca 4" class="h-16 w-auto">
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS per al Slider -->
+    <style>
+        .animate-marques {
+            animation: slide 25s linear infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(120%);
+            }
+
+            100% {
+                transform: translateX(-120%);
+            }
+        }
+    </style>
 </x-app-layout>

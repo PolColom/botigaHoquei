@@ -1,49 +1,36 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Comandes') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("Aquí trobaràs totes les comandes realitzades.") }}
-                </div>
-            </div>
+        <!-- Afegim espai amb un padding -->
+        <div class="container mt-5 p-6 bg-white shadow-lg rounded">
+            <h2 class="text-2xl font-bold mb-4">Carrito de la Compra</h2>
+            @if(empty(session('cistella')))
+                <p class="text-gray-600">No hi ha cap comanda en procés encara...</p>
+            @else
+                <table class="table-auto w-full border-collapse border border-gray-300">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="border border-gray-300 px-4 py-2 text-left">Nom del Producte</th>
+                            <th class="border border-gray-300 px-4 py-2 text-left">Quantitat</th>
+                            <th class="border border-gray-300 px-4 py-2 text-right">Preu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php $total = 0; @endphp
+                        @foreach(session('cistella') as $producte)
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">{{ $producte['nom'] }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ $producte['quantitat'] }}</td>
+                            <td class="border border-gray-300 px-4 py-2 text-right">{{ number_format($producte['preu'] * $producte['quantitat'], 2) }} €</td>
+                            @php $total += $producte['preu'] * $producte['quantitat']; @endphp
+                        </tr>
+                        @endforeach
+                        <tr class="font-bold bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2" colspan="2">Total</td>
+                            <td class="border border-gray-300 px-4 py-2 text-right">{{ number_format($total, 2) }} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            @endif
         </div>
     </div>
 </x-app-layout>
-
-@extends('layouts.app')
-
-@section('content')
-<div class="container mt-5">
-    <h2>Carrito de la Compra</h2>
-    @if($comandes->isEmpty())
-        <p>No hi ha cap comanda en procés encara...</p>
-    @else
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nom del Producte</th>
-                    <th>Tipus</th>
-                    <th>Quantitat</th>
-                    <th>Preu</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($comandes as $comanda)
-                <tr>
-                    <td>{{ $comanda->nom }}</td>
-                    <td>{{ $comanda->producte->tipus_producte->nom }}</td>
-                    <td>{{ $comanda->producte->quantitat_stock }}</td>
-                    <td>{{ $comanda->producte->tipus_producte->preu }} €</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    @endif
-</div>
-@endsection

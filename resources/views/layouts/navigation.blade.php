@@ -34,11 +34,11 @@
 
             <!-- Carrito de la Compra -->
             <div class="flex items-center space-x-6">
-                <a href="{{ route('comandes') }}" class="text-gray-700 hover:text-gray-900 relative">
+                <a href="{{ route('comandes.index') }}" class="text-gray-700 hover:text-gray-900 relative">
                     🛒
                     <span
                         class="absolute top-0 right-0 -mt-2 -mr-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500 text-white">
-                        {{ $comandesCount ?? 0 }}
+                        {{ session('cistella') ? count(session('cistella')) : 0 }}
                     </span>
                 </a>
 
