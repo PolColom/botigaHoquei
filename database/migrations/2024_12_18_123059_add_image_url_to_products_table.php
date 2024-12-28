@@ -12,17 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('productes', function (Blueprint $table) {
-            $table->string('image_url')->nullable()->after('nom_producte');
+            if (!Schema::hasColumn('productes', 'image_url')) {
+                $table->string('image_url')->nullable()->after('nom_producte');
+            }
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('productes', function (Blueprint $table) {
-            $table->dropColumn('image_url');
+            if (Schema::hasColumn('productes', 'image_url')) {
+                $table->dropColumn('image_url');
+            }
         });
     }
+
 };

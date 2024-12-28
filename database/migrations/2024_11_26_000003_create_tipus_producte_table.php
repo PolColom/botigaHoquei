@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Crea la taula 'tipus_producte'
         Schema::create('tipus_producte', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->string('tipus');
-            $table->string('talla');
-            $table->integer('preu');
-
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
+            $table->string('talla')->nullable();
+            $table->decimal('preu', 8, 2)->nullable();
+            $table->string('image_url')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipusProducte');
+        // Elimina la taula si existeix
+        Schema::dropIfExists('tipus_producte');
     }
 };

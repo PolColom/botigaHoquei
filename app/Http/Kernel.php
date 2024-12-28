@@ -20,9 +20,10 @@ class Kernel extends ConsoleKernel
      * Define the application's route middleware.
      */
     protected $routeMiddleware = [
-        // Altres middleware...
-        'admin' => \App\Http\Middleware\AdminMiddleware::class, // AFEGIT PER ADMIN
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        'admin' => \App\Http\Middleware\IsAdmin::class,
     ];
+       
 
     /**
      * Define the application's command schedule.

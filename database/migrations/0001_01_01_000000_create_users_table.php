@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('admin')->default(false);
             $table->string('equip')->nullable();
+            $table->string('role')->default('guest'); // Afegim aquí
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
@@ -43,10 +44,21 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    
+    public function down(): void{
+        // Verifica si la taula existeix abans d'intentar eliminar columnes
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+                if (Schema::hasColumn('users', 'role')) {
+                    $table->dropColumn('role'); // Només elimina la columna si existeix
+                }
+            });
+        }
+
+        // Després elimina les taules
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
+
 };

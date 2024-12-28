@@ -9,7 +9,8 @@ use App\Models\Tipus_Producte;
 class MaterialPorterController extends Controller{
     public function index(){
         $productes = Productes::where('tipus_producte_id', 1)->get();
-        return view('materialPorter', ['productes' => $productes]);
+        return view('materialPorter', compact('productes'));
     }
+
 
 }

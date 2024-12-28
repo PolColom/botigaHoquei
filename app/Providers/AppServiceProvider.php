@@ -2,26 +2,18 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider{
-
     public function boot(){
+        // Defineix el Gate per administrar
         Gate::define('administrar', function ($user) {
-            // una funció que retorna cert o fals segons si s'ha d'obrir o no la porta
-            return $user->admin;
+            return $user->role === 'admin'; 
         });
-
     }
 
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
+    public function register(): void{
         //
     }
-
-    
 }

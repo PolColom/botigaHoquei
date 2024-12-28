@@ -15,15 +15,15 @@
                 </div>
                 <div>
                     <label for="image_url" class="block text-sm font-medium text-gray-700">Imatge del Producte</label>
-                    <input type="file" id="image_url" name="image_url" class="w-full border-gray-300 rounded" required>
+                    <input type="file" id="image_url" name="image_url" class="w-full border-gray-300 rounded">
                 </div>
                 <div>
                     <label for="quantitat_stock" class="block text-sm font-medium text-gray-700">Quantitat en Stock</label>
-                    <input type="number" id="quantitat_stock" name="quantitat_stock" class="w-full border-gray-300 rounded" required>
+                    <input type="number" id="quantitat_stock" name="quantitat_stock" class="w-[10%] border-gray-300 rounded" required>
                 </div>
                 <div>
                     <label for="tipus_producte_id" class="block text-sm font-medium text-gray-700">Tipus de Producte</label>
-                    <select id="tipus_producte_id" name="tipus_producte_id" class="w-full border-gray-300 rounded" required>
+                    <select id="tipus_producte_id" name="tipus_producte_id" class="w-[10%] border-gray-300 rounded" required>
                         <option value="1">Porter</option>
                         <option value="2">Jugador</option>
                     </select>

@@ -17,38 +17,28 @@
                         <!-- Nom -->
                         <div class="mb-4">
                             <label for="nom_producte" class="block text-gray-700 font-bold mb-2">Nom del Producte:</label>
-                            <div class="flex items-center space-x-2">
-                                <input type="text" id="nom_producte" name="nom_producte"
-                                    class="w-full px-3 py-2 border rounded" value="{{ $producte->nom_producte }}">
-                                <button class="bg-gray-300 p-2 rounded" title="Editar">
-                                    🖉
-                                </button>
-                            </div>
+                            <input type="text" id="nom_producte" name="nom_producte" value="{{ $producte->nom_producte }}" class="w-full px-3 py-2 border rounded">
                         </div>
 
                         <!-- Preu -->
                         <div class="mb-4">
                             <label for="preu" class="block text-gray-700 font-bold mb-2">Preu:</label>
-                            <div class="flex items-center space-x-2">
-                                <input type="number" id="preu" name="preu" step="0.01"
-                                    class="w-full px-3 py-2 border rounded" value="{{ $producte->preu }}">
-                                <button class="bg-gray-300 p-2 rounded" title="Editar">
-                                    🖉
-                                </button>
-                            </div>
+                            <input type="number" id="preu" name="preu" step="0.01" value="{{ $producte->preu }}" class="w-full px-3 py-2 border rounded">
                         </div>
 
                         <!-- Quantitat en estoc -->
                         <div class="mb-4">
-                            <label for="quantitat_stock" class="block text-gray-700 font-bold mb-2">Quantitat en
-                                Estoc:</label>
-                            <div class="flex items-center space-x-2">
-                                <input type="number" id="quantitat_stock" name="quantitat_stock"
-                                    class="w-full px-3 py-2 border rounded" value="{{ $producte->quantitat_stock }}">
-                                <button class="bg-gray-300 p-2 rounded" title="Editar">
-                                    🖉
-                                </button>
-                            </div>
+                            <label for="quantitat_stock" class="block text-gray-700 font-bold mb-2">Quantitat en Estoc:</label>
+                            <input type="number" id="quantitat_stock" name="quantitat_stock" value="{{ $producte->quantitat_stock }}" class="w-[10%] px-3 py-2 border rounded">
+                        </div>
+
+                        <!-- Tipus de Producte -->
+                        <div class="mb-4">
+                            <label for="tipus_producte" class="block text-gray-700 font-bold mb-2">Tipus de Producte:</label>
+                            <select id="tipus_producte" name="tipus_producte" class="w-[10%] px-3 py-2 border rounded">
+                                <option value="Porter" {{ $producte->tipus_producte === 'Porter' ? 'selected' : '' }}>Porter</option>
+                                <option value="Jugador" {{ $producte->tipus_producte === 'Jugador' ? 'selected' : '' }}>Jugador</option>
+                            </select>
                         </div>
 
                         <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">

@@ -10,8 +10,7 @@ class DatabaseSeeder extends Seeder{
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
+    public function run(): void{
         //Usuaris (inserits manualment per assignar ID coneguts)
         DB::table('users')->insert([
             [
@@ -41,8 +40,24 @@ class DatabaseSeeder extends Seeder{
 
         //Tipus de Producte
         DB::table('tipus_producte')->insert([
-            ['id' => 1, 'nom' => "Material Porter", 'tipus' => "Porter", 'created_at' => now(), 'updated_at' => now()],
-            ['id' => 2, 'nom' => "Material Jugador", 'tipus' => "Jugador", 'created_at' => now(), 'updated_at' => now()],
+            [
+                'nom' => "Material Porter",
+                'tipus' => "Porter",
+                'talla' => null,
+                'preu' => null,
+                'image_url' => "https://example.com/material_porter.jpg",
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nom' => "Material Jugador",
+                'tipus' => "Jugador",
+                'talla' => null,
+                'preu' => null,
+                'image_url' => "https://example.com/material_jugador.jpg",
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
 
         //Productes

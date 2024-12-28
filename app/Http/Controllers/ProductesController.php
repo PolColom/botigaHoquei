@@ -2,95 +2,139 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\productes;
-use App\Http\Controllers\Controller;
+use App\Models\Productes;
 use Illuminate\Http\Request;
-use App\Models\Producte;
 
 class ProductesController extends Controller
 {
-    // Mostrar tots els productes
     public function index()
     {
-        $productes = Productes::all();
+        $productes = Productes::paginate(10);
         return view('productes.index', compact('productes'));
     }
 
-    // Mostrar el formulari per crear un nou producte
     public function create()
     {
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
+        }
         return view('productes.create');
     }
 
-    // Afegir un nou producte a la base de dades
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
+        }
+
         $request->validate([
             'nom_producte' => 'required|string|max:255',
-            'image_url' => 'required|url',
+            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'quantitat_stock' => 'required|integer|min:0',
+            'preu' => 'required|numeric|min:0',
+            'descripcio' => 'nullable|string',
+            'tipus_producte_id' => 'required|integer|in:1,2',
+        ]);
+
+
+        $fileName = time() . '_' . $request->file('image_url')->getClientOriginalName();
+        $request->file('image_url')->move(public_path('images'), $fileName);
+
+
+        $producte = Productes::create([
+            'nom_producte' => $request->input('nom_producte'),
+            'image_url' => 'images/' . $fileName,
+            'quantitat_stock' => $request->input('quantitat_stock'),
+            'preu' => $request->input('preu'),
+            'descripcio' => $request->input('descripcio'),
+            'tipus_producte_id' => $request->input('tipus_producte_id'),
+        ]);
+
+        if ($producte->tipus_producte_id == 1) {
+            return redirect()->route('materialPorter.index')->with('success', 'Producte afegit correctament!');
+        } 
+        else {
+            return redirect()->route('materialJugador.index')->with('success', 'Producte afegit correctament!');
+        }
+    }
+
+
+
+
+    public function show($id){
+        $producte = Productes::findOrFail($id);
+
+        return view('productes.show', compact('producte'));
+    }
+
+    public function edit($id){
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
+        }
+
+        $producte = Productes::findOrFail($id);
+
+        return view('productes.edit', compact('producte'));
+    }
+
+    public function update(Request $request, $id){
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
+        }
+
+        $request->validate([
+            'nom_producte' => 'required|string|max:255',
+            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'quantitat_stock' => 'required|integer|min:0',
             'preu' => 'required|numeric|min:0',
             'descripcio' => 'nullable|string',
         ]);
 
-        Productes::create($request->all());
+        $producte = Productes::findOrFail($id);
 
-        return redirect()->route('admin.productes.index')->with('success', 'Producte afegit correctament!');
-    }
+        $producte->nom_producte = $request->input('nom_producte');
+        $producte->quantitat_stock = $request->input('quantitat_stock');
+        $producte->preu = $request->input('preu');
+        $producte->descripcio = $request->input('descripcio');
 
-    // Mostrar els detalls d'un producte específic
-    public function show($id){
-        $producte = Productes::find($id);
+        if ($request->hasFile('image_url')) {
+            if ($producte->image_url && file_exists(public_path($producte->image_url))) {
+                unlink(public_path($producte->image_url));
+            }
 
-        if (!$producte) {
-            return redirect()->route('materialJugador.index')->with('error', 'El producte no existeix o no s\'ha trobat.');
+            $fileName = time() . '_' . $request->file('image_url')->getClientOriginalName();
+            $request->file('image_url')->move(public_path('images'), $fileName);
+            $producte->image_url = 'images/' . $fileName;
         }
 
-        return view('detalls', ['producte' => $producte]);
+        $producte->save();
+
+        if ($producte->tipus_producte_id == 1) {
+            return redirect()->route('materialPorter.index')->with('success', 'Producte actualitzat correctament!');
+        } 
+        else {
+            return redirect()->route('materialJugador.index')->with('success', 'Producte actualitzat correctament!');
+        }
     }
 
-    // Eliminar un producte de la base de dades
     public function destroy($id)
     {
-        $producte = Productes::find($id);
-        if (!$producte) {
-            return redirect()->route('admin.productes.index')->with('error', 'El producte no existeix o no s\'ha trobat.');
+        if (auth()->user()->role !== 'admin') {
+            return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
+        }
+
+        $producte = Productes::findOrFail($id);
+
+        if ($producte->image_url && file_exists(public_path($producte->image_url))) {
+            unlink(public_path($producte->image_url));
         }
 
         $producte->delete();
 
-        return redirect()->route('admin.productes.index')->with('success', 'Producte eliminat correctament!');
-    }
-
-    // Mostrar el formulari per editar un producte
-    public function edit($id)
-    {
-        $producte = Productes::find($id);
-
-        if (!$producte) {
-            return redirect()->route('admin.productes.index')->with('error', 'Producte no trobat.');
+        if ($producte->tipus_producte_id == 1) {
+            return redirect()->route('materialPorter.index')->with('success', 'Producte actualitzat correctament!');
+        } 
+        else {
+            return redirect()->route('materialJugador.index')->with('success', 'Producte actualitzat correctament!');
         }
-
-        return view('productes.edit', compact('producte'));
     }
-
-    // Actualitzar el preu d'un producte
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'nom_producte' => 'required|string|max:255',
-            'preu' => 'required|numeric|min:0',
-            'quantitat_stock' => 'required|integer|min:0',
-        ]);
-
-        $producte = Productes::findOrFail($id);
-        $producte->update([
-            'nom_producte' => $request->input('nom_producte'),
-            'preu' => $request->input('preu'),
-            'quantitat_stock' => $request->input('quantitat_stock'),
-        ]);
-
-        return redirect()->route('materialJugador.index')->with('success', 'Producte actualitzat correctament!');
-    }
-
 }

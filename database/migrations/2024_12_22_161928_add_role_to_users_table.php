@@ -9,24 +9,22 @@ class AddRoleToUsersTable extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
-    {
+    public function up(){
         Schema::table('users', function (Blueprint $table) {
-            // Afegim el camp "role" per definir el rol de cada usuari
-            $table->string('role')
-                  ->default('user') // Per defecte, el rol és "user"
-                  ->after('password'); // Afegim el camp després del "password"
+            if (!Schema::hasColumn('users', 'role')) {
+                $table->string('role')->default('user')->after('password');
+            }
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
-    {
+    public function down(){
         Schema::table('users', function (Blueprint $table) {
-            // Eliminem el camp "role" si revertim la migració
-            $table->dropColumn('role');
+            if (Schema::hasColumn('users', 'role')) {
+                $table->dropColumn('role');
+            }
         });
     }
 }
