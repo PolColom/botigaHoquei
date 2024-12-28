@@ -84,6 +84,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/productes/{id}/edit', [ProductesController::class, 'edit'])->name('productes.edit');
     Route::get('/productes', [ProductesController::class, 'index'])->name('productes.index');
     Route::delete('/productes/{id}', [ProductesController::class, 'destroy'])->name('productes.destroy');
+    Route::get('/productes/{id}', [ProductesController::class, 'show'])->name('productes.show');
+
 
 
     //Cistella i Comandes
@@ -93,6 +95,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/comandes/finalitzar', [ComandaController::class, 'finalitzarCompra'])->name('comandes.finalitzar');
     Route::post('/cistella/afegir/{id}', [ComandaController::class, 'afegir'])->name('cistella.afegir');
     Route::get('/cistella', [ComandaController::class, 'index'])->name('cistella.index');
+    Route::post('/cistella/afegir/{id}', [ComandaController::class, 'afegir'])->name('cistella.afegir');
+
 
     //Descomptes
     Route::post('/comandes/descompte', [ComandaController::class, 'aplicarDescompte'])->name('comandes.descompte');

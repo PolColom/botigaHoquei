@@ -57,14 +57,12 @@ class ProductesController extends Controller
         }
     }
 
-
-
-
     public function show($id){
         $producte = Productes::findOrFail($id);
 
-        return view('productes.show', compact('producte'));
+        return view('detalls', compact('producte'));
     }
+
 
     public function edit($id){
         if (auth()->user()->role !== 'admin') {
@@ -116,8 +114,7 @@ class ProductesController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id) {
         if (auth()->user()->role !== 'admin') {
             return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
         }

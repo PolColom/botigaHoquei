@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 
 class ComandaController extends Controller{
-    public function index()
-    {
+    public function index(){
         $cistella = session()->get('cistella', []);
         $total = array_reduce($cistella, function ($carry, $item) {
             return $carry + ($item['preu'] * $item['quantitat']);
