@@ -10,13 +10,13 @@
             <div>
                 <h1 class="text-3xl font-bold mb-4">{{ $producte->nom_producte }}</h1>
                 <p class="text-gray-600 text-lg mb-4">{{ $producte->descripcio }}</p>
-                <p class="text-xl font-bold text-gray-800 mb-2">Preu unitari: {{ number_format($producte->preu, 2) }} €</p>
-                <p class="text-green-600 font-semibold mb-4">Stock disponible: {{ $producte->quantitat_stock }}</p>
+                <p class="text-xl font-bold text-gray-800 mb-2">{{ __("Preu unitari:") }} {{ number_format($producte->preu, 2) }} €</p>
+                <p class="text-green-600 font-semibold mb-4">{{ __("Stock disponible:") }} {{ $producte->quantitat_stock }}</p>
 
                 <!-- Selecció de quantitat -->
                 <form action="{{ route('cistella.afegir', $producte->id) }}" method="POST" onsubmit="return validaQuantitat();">
                     @csrf
-                    <label for="quantitat" class="block text-gray-700 font-medium mb-2">Quantitat:</label>
+                    <label for="quantitat" class="block text-gray-700 font-medium mb-2">{{ __("Quantitat:") }}</label>
                     <input 
                         type="number" 
                         id="quantitat" 
@@ -27,11 +27,11 @@
                         class="border border-gray-300 rounded-lg p-2 mb-4 w-20"
                         onchange="actualitzaPreu();">
                 
-                    <p class="text-lg font-semibold text-gray-800 mb-4">Preu total: <span id="preu">{{ number_format($producte->preu, 2) }}</span> €</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-4">{{ __("Preu total:") }} <span id="preu">{{ number_format($producte->preu, 2) }}</span> €</p>
                 
                     <!-- Botó "Afegeix a la Cistella" -->
                     <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
-                        Afegeix a la Cistella
+                        {{ __("Afegeix a la Cistella") }}
                     </button>
                 </form>
             </div>
@@ -51,7 +51,7 @@
             const stock = {{ $producte->quantitat_stock }};
 
             if (quantitat > stock) {
-                alert('No tenim suficients articles en stock.');
+                alert('{{ __("No tenim suficients articles en stock.") }}');
                 return false;
             }
             return true;

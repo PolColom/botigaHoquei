@@ -75,46 +75,46 @@
 
     <!-- Secció DESTACAT -->
     <div class="container mx-auto px-4 py-12">
-        <h2 class="custom-title mb-10">DESTACAT</h2>
+        <h2 class="custom-title mb-10">{{ __('DESTACAT') }}</h2>
         <div class="relative overflow-hidden">
             <div id="featuredWrapper" class="flex transition-transform duration-500 ease-in-out space-x-6">
                 <!-- Primera Imatge -->
                 <a href="#"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
-                    <img src="{{ asset('images/porterDestacats.jpg') }}" alt="Petos Portero"
+                    <img src="{{ asset('images/porterDestacats.jpg') }}" alt="{{ __('Petos Portero') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
-                        PETOS PORTERO
+                        {{ __('PETOS PORTERO') }}
                     </div>
                 </a>
 
                 <!-- Segona Imatge -->
                 <a href="#"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
-                    <img src="{{ asset('images/platinesDestacats.jpg') }}" alt="Patins"
+                    <img src="{{ asset('images/platinesDestacats.jpg') }}" alt="{{ __('Patins') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
-                        PLATINES PATINS
+                        {{ __('PLATINES PATINS') }}
                     </div>
                 </a>
 
                 <!-- Tercera Imatge -->
                 <a href="#"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
-                    <img src="{{ asset('images/rodesDestacats.jpg') }}" alt="Rodes"
+                    <img src="{{ asset('images/rodesDestacats.jpg') }}" alt="{{ __('Rodes') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
-                        RODES
+                        {{ __('RODES') }}
                     </div>
                 </a>
 
                 <!-- Quarta Imatge -->
                 <a href="#"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
-                    <img src="{{ asset('images/sticksDestacats.jpg') }}" alt="Sticks Azemad"
+                    <img src="{{ asset('images/sticksDestacats.jpg') }}" alt="{{ __('Sticks Azemad') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 p-4 text-white font-extrabold">
-                        STICKS AZEMAD
+                        {{ __('STICKS AZEMAD') }}
                     </div>
                 </a>
             </div>
@@ -177,7 +177,7 @@
     <!-- Secció Google Maps -->
     <div class="bg-white py-12">
         <div class="container mx-auto px-4">
-            <h2 class="custom-title mb-6">On ens pots trobar?</h2>
+            <h2 class="custom-title mb-6">{{ __('On ens pots trobar?') }}</h2>
             <div class="flex justify-center">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.275546175962!2d2.2493397!3d41.9417692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a52749036ae301%3A0xfb558f058ea1c869!2sHockeymania!5e0!3m2!1sca!2ses!4v1700000000000!5m2!1sca!2ses"
@@ -189,13 +189,14 @@
     </div>
 
     <div class="flex justify-center mb-8">
-        <img src="{{ asset('images/HoqueiManiaLogo.png') }}" alt="Hoquei Mania Logo" class="h-24 w-auto">
+        <img src="{{ asset('images/HoqueiManiaLogo.png') }}" alt="{{ __('Hoquei Mania Logo') }}"
+            class="h-24 w-auto">
     </div>
 
 
     <style>
         .custom-title {
-            font-size: 54px; 
+            font-size: 54px;
             font-family: 'DM Sans', sans-serif;
             font-weight: bold;
             color: rgb(34, 34, 34);
@@ -215,15 +216,15 @@
                 <div class="lg:w-1/2 mb-8 lg:mb-0 relative">
                     <div class="parallax-container">
                         <img src="https://patinkid.com/wp-content/uploads/2021/05/flyer-alameda.jpg"
-                            alt="Hoquei Image" class="rounded-lg shadow-lg parallax-image">
+                            alt="{{ __('Hoquei Image') }}" class="rounded-lg shadow-lg parallax-image">
                     </div>
                 </div>
 
                 <!-- Segona Columna -->
                 <div class="lg:w-1/2 mb-8 lg:mb-0 flex flex-col justify-center">
                     <h2 class="text-2xl font-bold mb-4 leading-tight">
-                        Millora el teu rendiment <br>
-                        <span class="font-light">amb el millor equipament d'hoquei</span>
+                        {{ __('Millora el teu rendiment') }} <br>
+                        <span class="font-light">{{ __('amb el millor equipament d\'hoquei') }}</span>
                     </h2>
                 </div>
             </div>
@@ -233,26 +234,27 @@
                 <div class="flex flex-wrap justify-between">
                     <!-- Xarxes Socials -->
                     <div class="mb-4 lg:mb-0">
-                        <h3 class="font-semibold text-lg mb-4">Les Nostres Reds Socials</h3>
+                        <h3 class="font-semibold text-lg mb-4">{{ __('Les Nostres Reds Socials') }}</h3>
                         <div class="flex space-x-4">
                             <a href="#" class="text-gray-400 hover:text-white">
-                                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"
-                                    class="h-6 w-6">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                                    alt="{{ __('Facebook') }}" class="h-6 w-6">
                             </a>
                             <a href="#" class="text-gray-400 hover:text-white">
-                                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"
-                                    class="h-6 w-6">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+                                    alt="{{ __('Instagram') }}" class="h-6 w-6">
                             </a>
                         </div>
                     </div>
 
                     <!-- Newsletter -->
                     <div>
-                        <h3 class="font-semibold text-lg mb-4">Vols rebre ofertes i futures promocions?</h3>
+                        <h3 class="font-semibold text-lg mb-4">{{ __('Vols rebre ofertes i futures promocions?') }}
+                        </h3>
                         <form class="flex">
                             <input type="email"
                                 class="bg-gray-800 text-gray-400 rounded-l-md p-2 w-full focus:outline-none"
-                                placeholder="Email address">
+                                placeholder="{{ __('Email address') }}">
                             <button class="bg-blue-600 text-white px-4 rounded-r-md hover:bg-blue-700">→</button>
                         </form>
                     </div>
@@ -261,10 +263,10 @@
 
             <!-- Copy típic dels footers -->
             <div class="text-center text-gray-400 text-sm mt-8">
-                <p>&copy; 2024 HoqueiMania. Tots els drets reservats.</p>
+                <p>&copy; 2024 {{ __('HoqueiMania') }}. {{ __('Tots els drets reservats.') }}</p>
                 <p>
-                    <a href="#" class="hover:underline">Política de Privacitat</a> |
-                    <a href="#" class="hover:underline">Termes del Servei</a>
+                    <a href="#" class="hover:underline">{{ __('Política de Privacitat') }}</a> |
+                    <a href="#" class="hover:underline">{{ __('Termes del Servei') }}</a>
                 </p>
             </div>
         </div>

@@ -6,12 +6,12 @@
     </x-slot>
 
     <div class="container mx-auto px-6 py-12">
-        <h2 class="text-3xl font-bold text-center mb-6">Material Porters</h2>
+        <h2 class="text-3xl font-bold text-center mb-6">{{ __('Material Porters') }}</h2>
 
         @can('administrar')
             <div class="text-right mb-4">
                 <a href="{{ route('productes.create') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                    Afegir Producte
+                    {{ __('Afegir Producte') }}
                 </a>
             </div>
         @endcan
@@ -30,17 +30,17 @@
                     @can('administrar')
                         <div class="mt-4 flex justify-center space-x-4">
                             <form action="{{ route('productes.destroy', $producte->id) }}" method="POST"
-                                  onsubmit="return confirm('Estàs segur que vols eliminar aquest producte?')">
+                                  onsubmit="return confirm('{{ __('Estàs segur que vols eliminar aquest producte?') }}')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
-                                    Eliminar
+                                    {{ __('Eliminar') }}
                                 </button>
                             </form>
 
                             <a href="{{ route('productes.edit', $producte->id) }}"
                                class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-                                Editar Producte
+                                {{ __('Editar Producte') }}
                             </a>
                         </div>
                     @endcan

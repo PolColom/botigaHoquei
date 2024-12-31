@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex justify-center items-start py-10 bg-gray-100">
         <div class="container mx-auto px-6 py-8 bg-white shadow-lg rounded-lg">
-            <h2 class="text-2xl font-bold mb-4 text-center">Carrito de la Compra</h2>
+            <h2 class="text-2xl font-bold mb-4 text-center">{{ __("Carrito de la Compra") }}</h2>
 
             @if (session('success'))
                 <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
@@ -16,16 +16,16 @@
             @endif
 
             @if(empty(session('cistella')))
-                <p class="text-gray-600 text-center">No hi ha cap comanda en procés encara...</p>
+                <p class="text-gray-600 text-center">{{ __("No hi ha cap comanda en procés encara...") }}</p>
             @else
                 <table class="table-auto w-full border-collapse border border-gray-300">
                     <thead class="bg-gray-100">
                         <tr>
-                            <th class="border border-gray-300 px-4 py-2 text-left">Imatge</th>
-                            <th class="border border-gray-300 px-4 py-2 text-left">Nom del Producte</th>
-                            <th class="border border-gray-300 px-4 py-2 text-center">Quantitat</th>
-                            <th class="border border-gray-300 px-4 py-2 text-right">Preu</th>
-                            <th class="border border-gray-300 px-4 py-2 text-center">Accions</th>
+                            <th class="border border-gray-300 px-4 py-2 text-left">{{ __("Imatge") }}</th>
+                            <th class="border border-gray-300 px-4 py-2 text-left">{{ __("Nom del Producte") }}</th>
+                            <th class="border border-gray-300 px-4 py-2 text-center">{{ __("Quantitat") }}</th>
+                            <th class="border border-gray-300 px-4 py-2 text-right">{{ __("Preu") }}</th>
+                            <th class="border border-gray-300 px-4 py-2 text-center">{{ __("Accions") }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,11 +55,11 @@
                             $totalAmbDescompte = $total - ($total * $descompte);
                         @endphp
                         <tr class="font-bold bg-gray-100">
-                            <td class="border border-gray-300 px-4 py-2" colspan="4">Total Sense Descompte</td>
+                            <td class="border border-gray-300 px-4 py-2" colspan="4">{{ __("Total Sense Descompte") }}</td>
                             <td class="border border-gray-300 px-4 py-2 text-right">{{ number_format($total, 2) }} €</td>
                         </tr>
                         <tr class="font-bold bg-gray-100">
-                            <td class="border border-gray-300 px-4 py-2" colspan="4">Total Amb Descompte</td>
+                            <td class="border border-gray-300 px-4 py-2" colspan="4">{{ __("Total Amb Descompte") }}</td>
                             <td class="border border-gray-300 px-4 py-2 text-right">{{ number_format($totalAmbDescompte, 2) }} €</td>
                         </tr>
                     </tbody>
@@ -69,16 +69,16 @@
                     <!-- Codi de promoció -->
                     <form action="{{ route('comandes.descompte') }}" method="POST" class="flex items-center space-x-4">
                         @csrf
-                        <input type="text" name="codi" placeholder="A Quin Equip Jugues?" class="w-full p-2 border border-gray-300 rounded">
+                        <input type="text" name="codi" placeholder="{{ __("A Quin Equip Jugues?") }}" class="w-full p-2 border border-gray-300 rounded">
                         <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">
-                            Aplicar Descompte
+                            {{ __("Aplicar Descompte") }}
                         </button>
                     </form>
                     <div class="mt-6 flex justify-end">
                         <form action="{{ route('comandes.finalitzar') }}" method="POST">
                             @csrf
                             <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                                Finalitza la Compra
+                                {{ __("Finalitza la Compra") }}
                             </button>
                         </form>
                     </div>
