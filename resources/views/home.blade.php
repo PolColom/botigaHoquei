@@ -78,8 +78,13 @@
         <h2 class="custom-title mb-10">{{ __('DESTACAT') }}</h2>
         <div class="relative overflow-hidden">
             <div id="featuredWrapper" class="flex transition-transform duration-500 ease-in-out space-x-6">
+
+
+                <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+
                 <!-- Primera Imatge -->
-                <a href="#"
+                <!-- Primera Imatge -->
+                <a href="{{ route('materialPorter.index') }}"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
                     <img src="{{ asset('images/porterDestacats.jpg') }}" alt="{{ __('Petos Portero') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -89,7 +94,7 @@
                 </a>
 
                 <!-- Segona Imatge -->
-                <a href="#"
+                <a href="{{ route('materialJugador.index') }}"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
                     <img src="{{ asset('images/platinesDestacats.jpg') }}" alt="{{ __('Patins') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -99,7 +104,7 @@
                 </a>
 
                 <!-- Tercera Imatge -->
-                <a href="#"
+                <a href="{{ route('materialJugador.index') }}"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
                     <img src="{{ asset('images/rodesDestacats.jpg') }}" alt="{{ __('Rodes') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -109,7 +114,7 @@
                 </a>
 
                 <!-- Quarta Imatge -->
-                <a href="#"
+                <a href="{{ route('materialJugador.index') }}"
                     class="relative block group rounded-lg overflow-hidden shadow-lg w-[250px] h-[400px] mx-2">
                     <img src="{{ asset('images/sticksDestacats.jpg') }}" alt="{{ __('Sticks Azemad') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">

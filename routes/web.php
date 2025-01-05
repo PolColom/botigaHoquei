@@ -29,12 +29,14 @@ Route::group(['middleware' => 'auth'], function () {
         return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
     })->name('productes.create');
 
+
     Route::post('/productes', function () {
         if (auth()->user() && auth()->user()->role === 'admin') {
             return app(ProductesController::class)->store(request());
         }
         return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
     })->name('productes.store');
+
 
     Route::get('/productes/{id}/edit', function ($id) {
         if (auth()->user() && auth()->user()->role === 'admin') {
@@ -43,12 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
         return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
     })->name('productes.edit');
 
+
     Route::put('/productes/{id}', function ($id) {
         if (auth()->user() && auth()->user()->role === 'admin') {
             return app(ProductesController::class)->update(request(), $id);
         }
         return redirect('/')->with('error', 'No tens permís per accedir a aquesta pàgina.');
     })->name('productes.update');
+
 
     Route::delete('/productes/{id}', function ($id) {
         if (auth()->user() && auth()->user()->role === 'admin') {
@@ -64,6 +68,15 @@ Route::middleware('auth')->group(function () {
     //Rutes generals per a productes
     Route::resource('productes', ProductesController::class)->except(['show']);
     Route::get('/productes/{id}', [ProductesController::class, 'show'])->name('productes.show');
+
+    //Rutes Destactas
+    Route::get('/material-jugador', function () {
+        return view('materialJugador');
+    })->name('materialJugador.index');
+
+    Route::get('/material-porter', function () {
+        return view('materialPorter');
+    })->name('materialPorter.index');
 
     //Perfil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -85,7 +98,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/productes', [ProductesController::class, 'index'])->name('productes.index');
     Route::delete('/productes/{id}', [ProductesController::class, 'destroy'])->name('productes.destroy');
     Route::get('/productes/{id}', [ProductesController::class, 'show'])->name('productes.show');
-
 
 
     //Cistella i Comandes
